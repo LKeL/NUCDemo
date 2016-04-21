@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="loginCardView">
+        <attr name="cornerRadius" format="dimension" />
+        <attr name="portaritcornerRadius" format="dimension" />
+        <attr name="circleheight" format="dimension" />
+        <attr name="offsetX" format="dimension" />
+        <attr name="offsetY" format="dimension" />
+        <attr name="shadowColor" format="color" />
+        <attr name="shadowRadius" format="dimension" />
+    </declare-styleable>
+
+</resources>

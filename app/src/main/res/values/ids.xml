@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="login_background_bitmap" type="id">login_background_bitmap</item>
+</resources>

@@ -20,6 +20,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -157,6 +158,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 //        Uri uri = Uri.parse("http://www.baidu.com");
 //        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 //        startActivity(intent);
+
         mLoginFormView.startAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_out));
         // 创建webview进行第三方授权
         mWebView = new WebView(this);
@@ -276,8 +278,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * errors are presented and no actual login attempt is made.
      */
     private void attemptLogin() {
+        mEmailView.setFocusableInTouchMode(false);
+        mPasswordView.setFocusableInTouchMode(false);
         mLoginFormView.startAnimation(AnimationUtils.loadAnimation(this, R.anim.login));
         mportrait_view.startAnimation(AnimationUtils.loadAnimation(this, R.anim.move_out));
+
 
 //        if (mAuthTask != null) {
 //            return;

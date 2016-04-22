@@ -9,16 +9,12 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context="com.heartblood.nucdemo.LoginActivity"
+    android:background="@drawable/login_background"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
     <!-- Login progress -->
-    <com.facebook.drawee.view.SimpleDraweeView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        fresco:placeholderImage="@drawable/login_background" />
     <ProgressBar
         android:id="@+id/login_progress"
         style="?android:attr/progressBarStyleLarge"
@@ -37,12 +33,13 @@
             android:id="@+id/login_card"
             android:layout_width="match_parent"
             android:layout_height="370dp"
-            loginCardView:cornerRadius="12dp"
+
+            loginCardView:cornerRadius="8dp"
             loginCardView:portaritcornerRadius="65dp"
             loginCardView:circleheight="10dp"
             loginCardView:offsetX="0dp"
-            loginCardView:offsetY="4dp"
-            loginCardView:shadowRadius="4dp" />
+            loginCardView:offsetY="6dp"
+            loginCardView:shadowRadius="6dp" />
 
         <LinearLayout
             android:id="@+id/email_login_form"
@@ -62,7 +59,8 @@
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:focusable="false">
 
                 <AutoCompleteTextView
                     android:id="@+id/email"
@@ -74,7 +72,18 @@
                     android:singleLine="true" />
 
             </android.support.design.widget.TextInputLayout>
+            <com.kyleduo.switchbutton.SwitchButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_margin="10dp"
+                app:kswThumbWidth="25dp"
+                app:kswThumbHeight="25dp"
 
+                app:kswBackColor="#94A1AB"
+                app:kswTintColor="#172F3F"
+                app:kswThumbMargin="-5dp"
+                />
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -95,7 +104,8 @@
             <com.dd.ShadowLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="50dp"
                 app:sl_shadowRadius="3dp"
                 app:sl_shadowColor="#AA000000"
                 android:layout_gravity="center"
@@ -105,8 +115,7 @@
                 <Button
                     android:id="@+id/email_sign_in_button"
                     style="?android:textAppearanceSmall"
-
-                    android:layout_width="200dp"
+                    android:layout_width="230dp"
                     android:layout_height="wrap_content"
                     android:text="@string/action_sign_in"
                     android:textStyle="bold"
@@ -124,7 +133,11 @@
         android:layout_height="110dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-45dp"
-        fresco:placeholderImage="@drawable/haha" />
+        fresco:placeholderImage="@drawable/usertitle"
+        fresco:roundAsCircle="true"
+        fresco:actualImageScaleType="focusCrop"
+        fresco:roundingBorderWidth="0dp"
+        fresco:roundingBorderColor="@color/shadowColor"/>
 </RelativeLayout>
 
 

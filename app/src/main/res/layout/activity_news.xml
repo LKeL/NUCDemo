@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewsActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar" />
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/toolbar">
+
+        <!-- Content -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            ...
+
+        </RelativeLayout>
+
+        <!-- Side Drawer -->
+        <LinearLayout
+            android:id="@+id/drawer_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="#88FFFFFF"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+    </android.support.v4.widget.DrawerLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/textView"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Switch"
+        android:id="@+id/switch1"
+        android:layout_above="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="81dp"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

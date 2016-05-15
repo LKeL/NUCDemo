@@ -9,5 +9,6 @@
         <attr name="shadowColor" format="color" />
         <attr name="shadowRadius" format="dimension" />
     </declare-styleable>
-
+    <declare-styleable name="NestedScrollView">
+    </declare-styleable>
 </resources>

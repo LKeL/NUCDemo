@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="file:///android_asset/styles/solarized-light.css" />
+    <link rel="stylesheet" type="text/css" href="file:///android_asset/styles/style.css" />
+    <script src="file:///android_asset/jquery.min.js"></script>
+    <script src="file:///android_asset/highlight.pack.js"></script>
+</head>
+
+<body>
+<div id="actionBar_bottom"></div>
+<div id="title"></div>
+
+<div id="display_txt"></div>
+<p id="announce"></p>
+</body>
+<script>
+    window.onload=function() {
+        display_txt = js2java.getSummary();
+        title = js2java.getTitle();
+        author = js2java.getAuthor();
+        site = js2java.getWebSite();
+        $('#title').html(title);
+        $('#author').html(author);
+        $('#display_txt').html(display_txt);
+        $('#announce').html(site);
+        $('#actionBar_bottom').css("margin-top", js2java.getTopMargin() + "%");
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    }
+
+
+
+
+</script>
+</html>

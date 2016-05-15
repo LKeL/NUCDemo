@@ -1,59 +1,36 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewsActivity">
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
 
-    <android.support.v7.widget.Toolbar
-        android:layout_height="match_parent"
+    tools:context="com.heartblood.nucdemo.NewsActivity">
+
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:id="@+id/toolbar" />
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-    <android.support.v4.widget.DrawerLayout
-        android:id="@+id/drawer"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/toolbar">
-
-        <!-- Content -->
-        <RelativeLayout
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-            ...
+    </android.support.design.widget.AppBarLayout>
 
-        </RelativeLayout>
+    <include layout="@layout/content_news" />
 
-        <!-- Side Drawer -->
-        <LinearLayout
-            android:id="@+id/drawer_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:background="#88FFFFFF"
-            android:orientation="vertical">
-
-        </LinearLayout>
-
-    </android.support.v4.widget.DrawerLayout>
-
-    <TextView
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/textView"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_dialog_email" />
 
-    <Switch
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Switch"
-        android:id="@+id/switch1"
-        android:layout_above="@+id/textView"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="81dp"
-        android:layout_alignParentEnd="true" />
-
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

@@ -1,19 +1,13 @@
 package com.heartblood.nucdemo.common.ui;
 
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
-
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.github.ksoichiro.android.observablescrollview.Scrollable;
 import com.nineoldandroids.animation.ValueAnimator;
 import com.nineoldandroids.view.ViewHelper;
-import com.heartblood.nucdemo.R;
+
 
 /**
  * Created by heartblood on 16/5/15.

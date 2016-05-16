@@ -13,6 +13,36 @@
         android:layout_height="match_parent"
         android:id="@+id/news_card_detail">
     </com.github.ksoichiro.android.observablescrollview.ObservableWebView>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/flexible_space_layout_height">
+        <TextView
+            android:id="@+id/news_card_detail_FlexibleSpace"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/flexible_space_height"
+            android:gravity="bottom"
+            android:textSize="@dimen/flexible_space_text_size"
+            android:paddingBottom="@dimen/flexible_space_text_margin_bottom"
+            android:paddingLeft="@dimen/flexible_space_text_margin_left"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:background="@color/sfColor"/>
+
+        <com.facebook.drawee.view.SimpleDraweeView
+
+            android:id="@+id/news_card_detail_logo"
+            android:layout_width="@dimen/flexible_space_logo_size"
+            android:layout_height="@dimen/flexible_space_logo_size"
+            android:layout_gravity="right|bottom"
+            android:layout_marginRight="@dimen/flexible_space_logo_margin_right"
+            app:roundAsCircle="true"
+            app:roundedCornerRadius="180dp"
+            app:placeholderImage="@drawable/github"
+            app:backgroundImage="@color/white"
+            app:retryImageScaleType="centerCrop"/>
+
+    </FrameLayout>
     <android.support.v7.widget.Toolbar
         android:id="@+id/news_card_detail_toolbar"
         android:layout_width="match_parent"

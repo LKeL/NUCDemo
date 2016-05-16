@@ -3,29 +3,43 @@ package com.heartblood.nucdemo;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
+import android.widget.TextView;
+
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ObservableWebView;
 import com.heartblood.nucdemo.common.Global;
-import com.heartblood.nucdemo.common.ui.ToolbarControlBaseActivity;
+import com.heartblood.nucdemo.common.ui.FlexibleSpaceToolbarWebViewActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class NewsDetailActivity extends ToolbarControlBaseActivity implements ObservableScrollViewCallbacks {
+public class NewsDetailActivity extends FlexibleSpaceToolbarWebViewActivity implements ObservableScrollViewCallbacks {
     private JSONObject mdataObject;
     private ObservableWebView mWebView;
+    private TextView mFlexibleSpace;
+    private SimpleDraweeView mFresco;
     Toolbar mToolbar;
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Fresco.initialize(this);
         super.onCreate(savedInstanceState);
         mdataObject = Global.getNewsData();
+        try {
+            mFlexibleSpace.setText(mdataObject.getString("author"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+            mFlexibleSpace.setText("无名");
+        }
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -62,6 +76,19 @@ public class NewsDetailActivity extends ToolbarControlBaseActivity implements Ob
         return mWebView;
     }
 
+    @Override
+    protected TextView getFlexibleSpace() {
+        mFlexibleSpace = (TextView) findViewById(R.id.news_card_detail_FlexibleSpace);
+        return mFlexibleSpace;
+    }
+
+    @Override
+    protected SimpleDraweeView getFresco() {
+        mFresco = (SimpleDraweeView) findViewById(R.id.news_card_detail_logo);
+        mFresco.bringToFront();
+        return mFresco;
+    }
+
 
     @Nullable
     @Override
@@ -82,8 +109,8 @@ public class NewsDetailActivity extends ToolbarControlBaseActivity implements Ob
         }
         @JavascriptInterface
         public String getTopMargin() {
-            System.out.println(getScreenHeight());
-            return String.valueOf(5 + ((double)mToolbar.getHeight()*100)/(double)(getScreenHeight()-mToolbar.getHeight()));
+            Resources r = getResources();
+            return String.valueOf(10 + ((double)(mToolbar.getHeight()+r.getDimension(R.dimen.flexible_space_layout_height)+r.getDimension(R.dimen.flexible_space_logo_margin_bottom))*100)/(double)(getScreenHeight()-mToolbar.getHeight()));
         }
         @JavascriptInterface
         public String getTitle() {

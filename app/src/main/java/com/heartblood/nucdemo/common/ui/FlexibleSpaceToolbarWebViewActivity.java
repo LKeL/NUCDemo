@@ -47,7 +47,7 @@ public abstract class FlexibleSpaceToolbarWebViewActivity<S extends Scrollable> 
     protected abstract TextView getFlexibleSpace();
     protected abstract SimpleDraweeView getFresco();
     @Override
-    public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging)  dsaAEDRFTYUJIKL;'{
+    public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
         if (FlexibleSpacescrollY >= mScrollable.getCurrentScrollY()) {
             mFlexibleSpace.setTranslationY(-scrollY);
             mSimpleDraweeView.setTranslationY(-scrollY);
@@ -60,7 +60,7 @@ public abstract class FlexibleSpaceToolbarWebViewActivity<S extends Scrollable> 
             mSimpleDraweeView.setTranslationY(-scrollY);
         }
         if (mSimpleDraweeView.getY()+FlexibleSpaceMargin >= -mToolbar.getHeight()) {
-            mFlexibleSpaceIShide = false;Ωxcvhbj kn;,
+            mFlexibleSpaceIShide = false;
         }
     }
 

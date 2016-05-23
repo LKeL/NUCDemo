@@ -16,6 +16,8 @@ p {
     line-height:1.5;
     font-size:1.2em;
     color: #6B6B6B;
+    word-wrap:break-word;
+    
 }
 #author {
     float: right;
@@ -51,7 +53,7 @@ li {
     margin-right: 5%;
 }
 code {
-    overflow: scroll
+    overflow: hidden;
 }
 img {
     clear: both;

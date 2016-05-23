@@ -13,6 +13,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.Interpolator;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  * Created by heartblood on 16/5/17.
  */
@@ -177,9 +180,26 @@ public class MountainScenceView extends View{
         }
 
     }
-    
+    public void backToInit() {
+        Timer time=new Timer();
+        time.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Log.e("test", String.valueOf(mMoveFactor));
+                if (mMoveFactor <= 0) {
+                    cancel();
+                }
+                mMoveFactor = mMoveFactor -(float)0.001;
+                updateMountainPath(mMoveFactor);
+                updateTreePath(mMoveFactor,false);
+                postInvalidate();
+            }
+        }, 0, 5/* 表示0毫秒之後，每隔15毫秒執行一次 */);
+    }
     public void updateFactor(float scrollY) {
+
         mMoveFactor = Math.max(0, (float) (scrollY*(0.004)));
+        Log.e("test", String.valueOf(mMoveFactor));
         updateMountainPath(mMoveFactor);
         updateTreePath(mMoveFactor,false);
         invalidate();

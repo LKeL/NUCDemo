@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.percent.PercentFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,28 +8,22 @@
     android:fitsSystemWindows="true"
     tools:context="com.heartblood.nucdemo.NewsDetailActivity"
     android:clipToPadding="true"
-    android:background="@color/sfColor">
+    android:background="@color/mountainBackground">
     <com.github.ksoichiro.android.observablescrollview.ObservableWebView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/news_card_detail">
     </com.github.ksoichiro.android.observablescrollview.ObservableWebView>
-
-
-    <FrameLayout
+    <android.support.percent.PercentFrameLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/flexible_space_layout_height">
-        <TextView
+        android:layout_height="0dp"
+        app:layout_heightPercent="30%"
+        android:layout_marginTop="?attr/actionBarSize">
+        <com.heartblood.nucdemo.common.ui.MountainScenceView
             android:id="@+id/news_card_detail_FlexibleSpace"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/flexible_space_height"
-            android:gravity="bottom"
-            android:textSize="@dimen/flexible_space_text_size"
-            android:paddingBottom="@dimen/flexible_space_text_margin_bottom"
-            android:paddingLeft="@dimen/flexible_space_text_margin_left"
-            android:layout_marginTop="?attr/actionBarSize"
-            android:background="@color/sfColor"/>
-
+            android:layout_height="0dp"
+            app:layout_heightPercent="80%"
+            android:layout_width="match_parent"/>
         <com.facebook.drawee.view.SimpleDraweeView
 
             android:id="@+id/news_card_detail_logo"
@@ -38,17 +33,18 @@
             android:layout_marginRight="@dimen/flexible_space_logo_margin_right"
             app:roundAsCircle="true"
             app:roundedCornerRadius="180dp"
-            app:placeholderImage="@drawable/github"
-            app:backgroundImage="@color/white"
-            app:retryImageScaleType="centerCrop"/>
-
-    </FrameLayout>
+            app:placeholderImage="@mipmap/usertile"
+            app:backgroundImage="@color/mountainBackground"
+            app:retryImageScaleType="centerCrop"
+            app:roundingBorderWidth="2dp"
+            app:roundingBorderColor="@color/white"/>
+    </android.support.percent.PercentFrameLayout>
     <android.support.v7.widget.Toolbar
         android:id="@+id/news_card_detail_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/sfColor"
+        android:background="@color/refreshLayoutColor"
         app:title="文章"
         android:minHeight="?attr/actionBarSize"
         app:popupTheme="@style/AppTheme.PopupOverlay" />
-</FrameLayout>
+</android.support.percent.PercentFrameLayout>

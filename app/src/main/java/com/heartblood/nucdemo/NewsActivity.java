@@ -67,6 +67,7 @@ public class NewsActivity extends BaseActivity {
 
             @Override
             public void onRefreshBegin(PtrFrameLayout frame) {
+
                 frame.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -85,6 +86,9 @@ public class NewsActivity extends BaseActivity {
         });
     }
 
+    private NewsActivity getActivity() {
+        return this;
+    }
     public void getNewsJson(String url, final NewsActivity newsActivity) {
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(url, new JsonHttpResponseHandler() {

@@ -6,6 +6,7 @@ package com.heartblood.nucdemo.common.ui;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -15,11 +16,11 @@ import com.github.ksoichiro.android.observablescrollview.Scrollable;
 import com.heartblood.nucdemo.R;
 import com.nineoldandroids.animation.ValueAnimator;
 import com.nineoldandroids.view.ViewHelper;
-public abstract class FlexibleSpaceToolbarWebViewActivity<S extends Scrollable> extends BaseActivity implements ObservableScrollViewCallbacks {
+public abstract class FlexibleSpaceToolbarWebViewActivity<S extends Scrollable, V extends View> extends BaseActivity implements ObservableScrollViewCallbacks {
 
     private Toolbar mToolbar;
     private S mScrollable;
-    private TextView mFlexibleSpace;
+    private V mFlexibleSpace;
     private SimpleDraweeView mSimpleDraweeView;
     private Boolean mFlexibleSpaceIShide;
     private float FlexibleSpacescrollY;
@@ -44,7 +45,7 @@ public abstract class FlexibleSpaceToolbarWebViewActivity<S extends Scrollable> 
     protected abstract int getLayoutResId();
     protected abstract Toolbar createActionBar();
     protected abstract S createScrollable();
-    protected abstract TextView getFlexibleSpace();
+    protected abstract V getFlexibleSpace();
     protected abstract SimpleDraweeView getFresco();
     @Override
     public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {

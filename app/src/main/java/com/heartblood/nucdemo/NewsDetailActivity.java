@@ -17,6 +17,7 @@ import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCal
 import com.github.ksoichiro.android.observablescrollview.ObservableWebView;
 import com.heartblood.nucdemo.common.Global;
 import com.heartblood.nucdemo.common.ui.FlexibleSpaceToolbarWebViewActivity;
+import com.heartblood.nucdemo.common.ui.MountainScenceView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,7 +26,7 @@ import org.json.JSONObject;
 public class NewsDetailActivity extends FlexibleSpaceToolbarWebViewActivity implements ObservableScrollViewCallbacks {
     private JSONObject mdataObject;
     private ObservableWebView mWebView;
-    private TextView mFlexibleSpace;
+    private MountainScenceView mFlexibleSpace;
     private SimpleDraweeView mFresco;
     Toolbar mToolbar;
     @SuppressLint("SetJavaScriptEnabled")
@@ -34,12 +35,6 @@ public class NewsDetailActivity extends FlexibleSpaceToolbarWebViewActivity impl
         Fresco.initialize(this);
         super.onCreate(savedInstanceState);
         mdataObject = Global.getNewsData();
-        try {
-            mFlexibleSpace.setText(mdataObject.getString("author"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-            mFlexibleSpace.setText("无名");
-        }
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -73,12 +68,13 @@ public class NewsDetailActivity extends FlexibleSpaceToolbarWebViewActivity impl
         mWebView.getSettings().setDomStorageEnabled(true);
         mWebView.addJavascriptInterface(new JSInvokeClass(), "js2java");
         mWebView.loadUrl("file:///android_asset/index.html");
+
         return mWebView;
     }
 
     @Override
-    protected TextView getFlexibleSpace() {
-        mFlexibleSpace = (TextView) findViewById(R.id.news_card_detail_FlexibleSpace);
+    protected MountainScenceView getFlexibleSpace() {
+        mFlexibleSpace = (MountainScenceView) findViewById(R.id.news_card_detail_FlexibleSpace);
         return mFlexibleSpace;
     }
 
